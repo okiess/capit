@@ -52,9 +52,10 @@ module CapIt
       @max_wait       = options[:max_wait] || 15000
       @delay          = options[:delay]
       @cutycapt_path  = options[:cutycapt_path] || determine_cutycapt_path
+      @cutycapt_path = '/usr/bin/cutycapt' if @cutycapt_path.nil? or @cutycapt_path.blank?
       @min_width      = options[:min_width] || 1024
       @min_height     = options[:min_height] || 768
-            
+
       valid_extension?(@filename)
     end
     
