@@ -69,7 +69,7 @@ module CapIt
     # @see CapIt::Capture#successful? 
     #
     def capture
-      put "Using #{capture_command}..."
+      puts "Using #{capture_command}..."
       `#{capture_command}`
       successful?
     end
