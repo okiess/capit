@@ -46,7 +46,7 @@ module CapIt
     #
     def initialize url, options = {}
       @url            = url              
-      @folder         = options[:folder] || Dir.pwd
+      @folder         = options[:folder] || '/tmp'
       @filename       = options[:filename] || "capit.jpeg"
       @user_agent     = options[:user_agent] || "CapIt! [http://github.com/meadvillerb/capit]"
       @max_wait       = options[:max_wait] || 15000
@@ -68,7 +68,8 @@ module CapIt
     # 
     # @see CapIt::Capture#successful? 
     #
-    def capture      
+    def capture
+      put "Using #{capture_command}..."
       `#{capture_command}`
       successful?
     end
